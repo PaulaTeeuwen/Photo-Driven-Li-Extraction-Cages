@@ -12,20 +12,14 @@ This repository contains the scripts and xyz-files relevant for studying the Li-
 For installing these tools, refer to their respective documentation or package managers suitable for your system.
 
 ## Repository Structure
-- Scripts/: contains all bash and python scripts
-- MM3_Scigres_cages/: contains all MM3 optimized cage structures (*cage.mol*)
-- GFN2_ORCA_cages/: contains all GFN2-xTB optimized cage structures (*cage.xyz*), including the files (*cage.in* and *cage_input.xyz*) used as input for the *ORCA* calculations
-- GFN2_xtb_cages/: contains all the GFN2-xTB optimized cage structures (*cage_xtbopt.xyz*), their calculated vibrational spectra (*cage_vibspectrum*) and the input used for the *xtb* calculation (*cage_ORCA.xyz*).
-- DFT_SPE_ORCA_cages/: contains the input (*cage.in*) and output (*cage_output*) files for the r<sup>2</sup>SCAN-3c SPE calculations on the cages using *ORCA*.
-- GFN2_lowest_clusters/: lowest energy conformers of metal-clusters found at GFN2-xTB level
-- DFT_lowest_clusters/: lowest energy conformers of metal-clusters found at r<sup>2</sup>SCAN-3c//GFN2-xTB level
-
-Here, "*cage*" refers to the type of cage: trencage, trenLi, trenNa, trenK, trenCa, trenMg, trenH, trenHLi, trenHNa, trenHK, trenHCa and trenHMg.
+- 1-Coordination/:
+- 2-Npositions/:
+- 3-PhenylOrientations/:
 
 ## 1. Investigation of the Li-coordination environments
 1) MM3 modelling was performeed in Scigress on four different potential geometries of the sandwich complex Li<sub>4</sub>L<sub>2</sub>. Each started out from a different coordination geometry.
 
-2) GFN2-xTB optimization was performed on the MM3-optimized from step 1 using the *OPTIM* interface to the XTB program. For each calculation, a charge of 5 was applied. The odata file shown below contains all the input parameters:
+2) Geometry optimizations at the GFN2-xTB level performed on the MM3-optimized from step 1 using the *OPTIM* interface to the *XTB* program. For each calculation, a charge of 5 was applied. The odata file shown below contains all the input parameters:
 
    odata:
    ```
@@ -56,8 +50,11 @@ Here, "*cage*" refers to the type of cage: trencage, trenLi, trenNa, trenK, tren
    The results of the optimization can be found in the 1-Coordination folder as *1[a,b,c,d]_output* and *1[a,b,c,d]_GFN2_converged.xyz*.
    
 ## 2. Investigation of the relative pyrrole-nitrogen positions
-1) Four diastereomers of 1a (1a_alpha, 1a_beta, 1a_gamma, 1a_delta) are created by changing the moving one nitrogen around the pyrrole-ring starting from 1a. These files can be found in the repository as *1a_[alpha/beta/gamma/delta]_GFN2/1a_[alpha/beta/gamma/delta]_input.xyz*. 
-2) GFN2-xTB calculations are performed 
+1) Four diastereomers of 1a (1a_alpha, 1a_beta, 1a_gamma, 1a_delta) were created by changing the moving one nitrogen around the pyrrole-ring starting from 1a. These files can be found in the repository as *1a_[type]_GFN2/1a_[type]_input.xyz*, with type being alpha, beta gamma or delta.
+   
+2) Geometry optimizations at the GFN2-xTB level were performed on the input structures generated in step 1.
+
+3) Geometry optimizations at the r<sup>2</sup>SCAN-3c level were performed on the structures obtained in step 2. First, optimizations at the NormalSCF convergence criteria were performed, followed by optimizations at the TightSCF convergence criteria. Whenever no convergence could be reached, the converged structure of a different diastereomer was adjusted to provide a new input structure (see 1a, . 
 
 ## 3. Investigation of relative orientations of the phenyl rings
 
