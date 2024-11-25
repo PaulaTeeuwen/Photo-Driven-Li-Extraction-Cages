@@ -6,4 +6,4 @@
 restart true
 end
 
-*xyzfile 5 1  ORCA.xyz
+*xyzfile 5 1  1a_beta_DFT_NormalSCF.xyz
