@@ -1,0 +1,5 @@
+! r2SCAN-3c OPT NORMALSCF def2/J
+%maxcore 8000
+%PAL NPROCS 20 END
+
+*xyzfile 5 1  GFN2.xyz
