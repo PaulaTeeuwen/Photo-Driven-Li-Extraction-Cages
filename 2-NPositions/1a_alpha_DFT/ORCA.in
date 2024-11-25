@@ -2,4 +2,4 @@
 %maxcore 20000
 %PAL NPROCS 10 END
 
-*xyzfile 5 1  1a_DFT_normalSCF.xyz
+*xyzfile 5 1  1a_alpha_DFT_normalSCF.xyz
