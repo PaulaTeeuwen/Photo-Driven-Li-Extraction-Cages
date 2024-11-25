@@ -2,4 +2,4 @@
 %maxcore 20000
 %PAL NPROCS 20 END
 
-*xyzfile 5 1  N1_drawnfromN2_ORCA.xyz
+*xyzfile 5 1  1a_ORCA_input.xyz
