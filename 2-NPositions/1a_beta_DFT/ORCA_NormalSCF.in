@@ -2,4 +2,4 @@
 %maxcore 8000
 %PAL NPROCS 20 END
 
-*xyzfile 5 1  GFN2.xyz
+*xyzfile 5 1  1a_beta_GFN2_converged.xyz
