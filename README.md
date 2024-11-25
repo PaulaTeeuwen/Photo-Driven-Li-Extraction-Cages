@@ -54,6 +54,32 @@ For installing these tools, refer to their respective documentation or package m
    
 2) Geometry optimizations at the GFN2-xTB level were performed on the input structures generated in step 1. Well-converged minima ...
 
-3) Geometry optimizations at the r<sup>2</sup>SCAN-3c level were performed on the structures obtained in step 2. First, optimizations at the NormalSCF convergence criteria were performed, followed by optimizations at the TightSCF convergence criteria. Initially, no convergence could be reached via this method for 1a and 1a_gamma. In both cases, well-converged minima were obtained by choosing a different input structure by adjusting the converged structure of a different diastereomer. 
+3) Geometry optimizations at the r<sup>2</sup>SCAN-3c level were performed on the structures obtained in step 2. First, optimizations at the NormalSCF convergence criteria were performed, followed by optimizations at the TightSCF convergence criteria. Initially, no convergence could be reached via this method for 1a and 1a_gamma. In both cases, well-converged minima were obtained by choosing a different input structure by adjusting the converged structure of a different diastereomer.
+
+The ORCA.in file for the geometry optimizations at the NormalSCF level contained:
+```
+! r2SCAN-3c OPT NORMALSCF def2/J
+%maxcore 8000
+%PAL NPROCS 20 END
+
+*xyzfile 5 1  GFN2.xyz
+```
+
+The ORCA.in file for the geometry optimizations at the TightSCF level contained:
+```
+! r2SCAN-3c OPT TIGHTSCF def2/J
+%maxcore 20000
+%PAL NPROCS 10 END
+
+*xyzfile 5 1  ORCA.xyz
+```
+
+Calculations were submitted by running:
+>> sbatch sbatch.orca
+
+where, sbatch.orca contained the line:
+```
+/path-to-orca/orca ORCA.in > output &
+```
 
 ## 3. Investigation of relative orientations of the phenyl rings
