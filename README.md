@@ -12,9 +12,9 @@ This repository contains the scripts and xyz-files relevant for studying the Li-
 For installing these tools, refer to their respective documentation or package managers suitable for your system.
 
 ## Repository Structure
-- 1-Coordination/:
-- 2-Npositions/:
-- 3-PhenylOrientations/:
+- 1-Coordination/: Input-files and output files for section 7.1 of the Supporting Information
+- 2-Npositions/: Input-files and output files for section 7.2 of the Supporting Information
+- 3-PhenylOrientations/: Input-files and output files for section 7.2 of Supporting Information
 
 ## 1. Investigation of the Li-coordination environments
 1) MM3 modelling was performeed in Scigress on four different potential geometries of the sandwich complex Li<sub>4</sub>L<sub>2</sub>. Each started out from a different coordination geometry.
@@ -57,58 +57,3 @@ For installing these tools, refer to their respective documentation or package m
 3) Geometry optimizations at the r<sup>2</sup>SCAN-3c level were performed on the structures obtained in step 2. First, optimizations at the NormalSCF convergence criteria were performed, followed by optimizations at the TightSCF convergence criteria. Initially, no convergence could be reached via this method for 1a and 1a_gamma. In both cases, well-converged minima were obtained by choosing a different input structure by adjusting the converged structure of a different diastereomer. 
 
 ## 3. Investigation of relative orientations of the phenyl rings
-
-
-
-
-
-
-## Clusters
-1) Use Quantum Cluster Growth (QCG) algorithm in CREST to build solvent shells of n = 10 or n = 20 MeCN molecules around a metal ion (M = Li, Na, K, Ca, Mg). Charge c is 1 for Li, Na and K and 2 for Ca and Mg. A file called *crest_best* is created after each QCG run.
-   
-   ```
-   /path-to-crest/crest M.xyz -qcg acetonitrile.xyz -nsolv n --gfnff --chrg 2 -T $SLURM_CPUS_PER_TASK --alpb acetonitrile --ensemble --mdtime 50 > output
-   ```
-   
-   Pure solvent clusters are made via the -gsolv keyword for the Na-cluster generation:
-   ```
-   /path-to-crest/crest Na.xyz -qcg acetonitrile.xyz -nsolv 10 --gfnff --chrg 1 -T $SLURM_CPUS_PER_TASK --alpb acetonitrile **--gsolv** --mdtime 50 --freqlvl gfnff > output 
-   ```
-   
-   The K<sub>n=10</sub> cluster is made in three consecutive qcg steps:
-   - ```/path-to-crest/crest K.xyz -qcg acetonitrile.xyz -nsolv n --gfnff --chrg 2 -T $SLURM_CPUS_PER_TASK --alpb acetonitrile --ensemble --mdtime 50 > output```
-   - ```/path-to-crest/crest K_n10_step1_crest_best_-2MeCN.xyz -qcg acetonitrile.xyz -nsolv n --gfnff --chrg 2 -T $SLURM_CPUS_PER_TASK --alpb acetonitrile --ensemble --mdtime 50 > output```
-   - ```/path-to-crest/crest K_n10_step2_crest_best_-1MeCN.xyz -qcg acetonitrile.xyz -nsolv n --gfnff --chrg 2 -T $SLURM_CPUS_PER_TASK --alpb acetonitrile --ensemble --mdtime 50 > output```
-
-   Finally, additional QCG runs are performed starting from [K@(MeCN)<sub>6</sub>]<sup>1+</sup> and [Na@(MeCN)<sub>6</sub>]<sup>2+</sup> found in the Cambridge Structural Database (CSD). In these cases, n is either 4 or 14 in order to generate clusters with 10 or 20 MeCN molecules.
-   - ```/path-to-crest/crest KMeCN6_fromXRD.xyz -qcg acetonitrile.xyz -nsolv n --gfnff --chrg 2 -T $SLURM_CPUS_PER_TASK --alpb acetonitrile --ensemble --mdtime 50 > output```
-   - ```/path-to-crest/crest NaMeCN6_fromXRD.xyz -qcg acetonitrile.xyz -nsolv n --gfnff --chrg 2 -T $SLURM_CPUS_PER_TASK --alpb acetonitrile --ensemble --mdtime 50 > output```
-
-3) The lowest energy clusters found in *crest_best.xyz* from each qcg run are used as input for NCI conformational sampling. Four different settings are screened during this sampling step. After the run, a file called *crest_conformers.xyz* is created.
-   - ```/path-to-crest/crest crest_best.xyz --gfnff --chrg c --nci --noreftopo --alpb acetonitrile > output```
-   - ```/path-to-crest/crest crest_best.xyz --gfnff --chrg c --nci --notopo --noreftopo --alpb acetonitrile > output```
-   - ```/path-to-crest/crest crest_best.xyz --gfnff --chrg c --nci --noreftopo --mdlen x3 --alpb acetonitrile > output```
-   - ```/path-to-crest/crest crest_best.xyz --gfnff --chrg c --nci --notopo --noreftopo --mdlen x3 --alpb acetonitrile > output```
-  
-4) The conformers reported in the *crest_conformers.xyz* files during the qcg run are extracted and placed in separate folders (*GFN2_i*) using the python script *getxyz.py*. GFN2-xTB calculations are performed on each extracted conformer by submitting the *sbatch.xtb* script using job-arrays to the SLURM scheduler. Then, the Gibbs free energies are extracted and reported in a log-file (*M_ensemble_GFN2_energies.log*) by submitting the *extractenergies.sh* file to the SLURM scheduler. Additionally, the ID-number i and Gibbs free energy of the lowest conformer is reported.
-
-   The entire process is automated by running the *submit_job.sh* script, whose messages are directed to the log-files *M_ensemble_GFN2.log* and *M_ensemble_GFN2_energies.log*:
-   
-   ```>> bash submit_job.sh```
-   
-   The scripts can be found in the folder *Scripts* in this repository, as well as examples of the log-files.
-
-7) DFT SPE energy calculations are performed on the lowest energy conformers found in step 4 for each metal and setting.  The settings are analogous to those used for cages:
-   
-   ORCA.in:
-   ```
-   ! r2SCAN-3c ENERGY TightSCF defgrid3 def2/J
-   %maxcore 8000
-   %PAL NPROCS 10 END
-   %CPCM SMD TRUE
-          SMDSOLVENT "MeCN"
-   END
-   *xyzfile c 1  xtbopt.xyz
-   ```
-
-The lowest energy conformers (all settings combined) at the GFN2-xTB level for each metal are shown in the GFN2_lowest_clusters/ folder in this github repository. The lowest energy conformer at the r<sup>2</sup>SCAN-3c//GFN2-xTB level for each metal (all settings combined) are shown in the DFT_lowest_clusters/ folder.
