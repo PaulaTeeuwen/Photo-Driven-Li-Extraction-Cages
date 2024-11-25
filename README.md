@@ -23,7 +23,7 @@ For installing these tools, refer to their respective documentation or package m
 Here, "*cage*" refers to the type of cage: trencage, trenLi, trenNa, trenK, trenCa, trenMg, trenH, trenHLi, trenHNa, trenHK, trenHCa and trenHMg.
 
 ## 1. Investigation of the Li-coordination environments
-1) MM3 modelling was performeed in Scigress on four different potential geometries of the sandwich complex Li4L2. Each started out from a different coordination geometry.
+1) MM3 modelling was performeed in Scigress on four different potential geometries of the sandwich complex Li<sub>4</sub>L<sub>2</sub>. Each started out from a different coordination geometry.
 
 2) GFN2-xTB optimization was performed on the MM3-optimized from step 1 using the *OPTIM* interface to the XTB program. For each calculation, a charge of 5 was applied. The odata file shown below contains all the input parameters:
 
@@ -56,6 +56,12 @@ Here, "*cage*" refers to the type of cage: trencage, trenLi, trenNa, trenK, tren
    The results are stored in the output file, which can be found in this repository.
    
 ## 2. Investigation of the relative pyrrole-nitrogen positions
+
+## 3. Investigation of relative orientations of the phenyl rings
+
+
+
+
 
 
 ## Clusters
