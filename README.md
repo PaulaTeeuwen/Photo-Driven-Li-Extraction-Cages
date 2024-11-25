@@ -53,7 +53,7 @@ Here, "*cage*" refers to the type of cage: trencage, trenLi, trenNa, trenK, tren
    
    >>sbatch sbatch.optim
 
-   The results are stored in the output file, which can be found in this repository.
+   The results of the optimization can be found in the 1-Coordination folder as *1[a,b,c,d]_output* and *1[a,b,c,d]_GFN2_converged.xyz*.
    
 ## 2. Investigation of the relative pyrrole-nitrogen positions
 
