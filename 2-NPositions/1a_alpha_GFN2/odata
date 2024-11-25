@@ -11,4 +11,4 @@ RADIUS 2000.0
 DUMPDATA
 ENDNUMHESS
 
-XTB Li5L2_bpy-coordinate_4_NitrogenPositionChanged3.xyz ' --acc 0.01 --chrg 5 --gfn2 '
+XTB 1a_alpha_input.xyz ' --acc 0.01 --chrg 5 --gfn2 '
