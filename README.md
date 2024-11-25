@@ -52,9 +52,9 @@ For installing these tools, refer to their respective documentation or package m
 ## 2. Investigation of the relative pyrrole-nitrogen positions
 1) Four diastereomers of 1a (1a_alpha, 1a_beta, 1a_gamma, 1a_delta) were created by changing the moving one nitrogen around the pyrrole-ring starting from 1a. These files can be found in the repository as *1a_[type]_GFN2/1a_[type]_input.xyz*, with type being alpha, beta gamma or delta.
    
-2) Geometry optimizations at the GFN2-xTB level were performed on the input structures generated in step 1.
+2) Geometry optimizations at the GFN2-xTB level were performed on the input structures generated in step 1. Well-converged minima ...
 
-3) Geometry optimizations at the r<sup>2</sup>SCAN-3c level were performed on the structures obtained in step 2. First, optimizations at the NormalSCF convergence criteria were performed, followed by optimizations at the TightSCF convergence criteria. Whenever no convergence could be reached, the converged structure of a different diastereomer was adjusted to provide a new input structure (see 1a, . 
+3) Geometry optimizations at the r<sup>2</sup>SCAN-3c level were performed on the structures obtained in step 2. First, optimizations at the NormalSCF convergence criteria were performed, followed by optimizations at the TightSCF convergence criteria. Initially, no convergence could be reached via this method for 1a and 1a_gamma. In both cases, well-converged minima were obtained by choosing a different input structure by adjusting the converged structure of a different diastereomer. 
 
 ## 3. Investigation of relative orientations of the phenyl rings
 
