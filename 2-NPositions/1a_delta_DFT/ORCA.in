@@ -2,8 +2,4 @@
 %maxcore 20000
 %PAL NPROCS 20 END
 
-%freq 
-restart true
-end
-
 *xyzfile 5 1  1a_delta_DFT_NormalSCF.xyz
