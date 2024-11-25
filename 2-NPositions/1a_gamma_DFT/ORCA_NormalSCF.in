@@ -2,4 +2,4 @@
 %maxcore 20000
 %PAL NPROCS 20 END
 
-*xyzfile 5 1 N4_fromN5.xyz
+*xyzfile 5 1 1a_gamma_ORCA_input.xyz
