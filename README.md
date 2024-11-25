@@ -4,7 +4,7 @@ This repository contains the scripts and xyz-files relevant for studying the Li-
 ## Software used
 - [Scigress](https://www.fqs.pl/en/chemistry/products/scigress) v2.6
 - [ORCA](https://www.faccts.de/orca/) v5.0.4
-- [xtb](https://github.com/grimme-lab/xtb) v6.6.0
+- [xtb](https://github.com/grimme-lab/xtb) v6.5.0
 - [OPTIM](https://www-wales.ch.cam.ac.uk/OPTIM/)
 - [GMIN](https://www-wales.ch.cam.ac.uk/GMIN/)
 - SLURM scheduler (for job arrays)
@@ -22,7 +22,7 @@ For installing these tools, refer to their respective documentation or package m
 
 Here, "*cage*" refers to the type of cage: trencage, trenLi, trenNa, trenK, trenCa, trenMg, trenH, trenHLi, trenHNa, trenHK, trenHCa and trenHMg.
 
-## 1. Investigation of teh Li-coordination environments
+## 1. Investigation of the Li-coordination environments
 1) MM3 modelling was performeed in Scigress on four different potential geometries of the sandwich complex Li4L2. Each started out from a different coordination geometry.
 
 2) GFN2-xTB optimization was performed on the MM3-optimized from step 1 using the *OPTIM* interface to the XTB program. For each calculation, a charge of 5 was applied. The odata file shown below contains all the input parameters:
@@ -49,44 +49,14 @@ Here, "*cage*" refers to the type of cage: trencage, trenLi, trenNa, trenK, tren
    ```
    /path-to-OPTIM/OPTIM > output
    ```
-   followed by running
-
-   ```
-   sbatch sbatch.optim
-   ```
-   The results are stored in the output file.
+   followed by running:
    
-4) GFN2-xTB optimization of the MM3-cages in step 1 using *ORCA* (CSD3 cluster). Charge c is 0, 4, 8 or 12 depending on the cage.
+   >>sbatch sbatch.optim
 
-   ORCA.in:
-   ```
-   ! XTB2 OPT NUMFREQ
-   %PAL NPROCS 8 END
-   %maxcore 2658
-
-   ! ALPB(Acetonitrile)
-
-   *xyzfile c 1 input.xyz
-   ```
-
-5) GFN2-xTB optimization of the cages from step 2 using *xtb* (NEST cluster).The trenLiH cage input structure was obtained from XRD.
-
-   ```
-   xtb structure.xyz --ohess vtight --alpb acetonitrile --chrg c > output
-   ```
-
-6) r<sup>2</sup>SCAN-3c single point energy (SPE) calculation using *ORCA* (NEST cluster)
+   The results are stored in the output file, which can be found in this repository.
    
-   ORCA.in:
-   ```
-   ! r2SCAN-3c ENERGY TightSCF defgrid3 def2/J
-   %maxcore 8000
-   %PAL NPROCS 10 END
-   %CPCM SMD TRUE
-          SMDSOLVENT "MeCN"
-   END
-   *xyzfile c 1  xtbopt.xyz
-   ```
+## 2. Investigation of the relative pyrrole-nitrogen positions
+
 
 ## Clusters
 1) Use Quantum Cluster Growth (QCG) algorithm in CREST to build solvent shells of n = 10 or n = 20 MeCN molecules around a metal ion (M = Li, Na, K, Ca, Mg). Charge c is 1 for Li, Na and K and 2 for Ca and Mg. A file called *crest_best* is created after each QCG run.
