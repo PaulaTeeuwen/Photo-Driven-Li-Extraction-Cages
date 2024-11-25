@@ -8,11 +8,11 @@ getparams> OPTIM is running on host name
 node-0-6
  getparams> Number of atoms (or variables)  determined as    425
  getparams> Number of optimisation degrees of freedom   1275
- keywords> xtb system: Li5L2_bpy-coordinate_4_NitrogenPositionChanged1.xyz and job string --acc 0.01 --chrg 5 --gfn2
+ keywords> xtb system: 1a_alpha_input.xyz and job string --acc 0.01 --chrg 5 --gfn2
  xtb_init> running xtb in directory xtbdir
  fetchz> LBFGS minimization, maximum steps=   10000
 
- fetchz> Coordinates read from file Li5L2_bpy-coordinate_4_NitrogenPositionChanged1.xyz
+ fetchz> Coordinates read from file 1a_alpha_input.xyz
  fetchz> xtb input, 1275 coordinates for 425 atoms are:
         C        -3.536830       -2.143900        3.219020
         C        -4.360010       -3.131810        3.740920
