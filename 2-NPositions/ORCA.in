@@ -1,0 +1,9 @@
+! r2SCAN-3c OPT TIGHTSCF def2/J
+%maxcore 20000
+%PAL NPROCS 20 END
+
+%freq 
+restart true
+end
+
+*xyzfile 5 1  ORCA.xyz
