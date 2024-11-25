@@ -56,6 +56,8 @@ Here, "*cage*" refers to the type of cage: trencage, trenLi, trenNa, trenK, tren
    The results of the optimization can be found in the 1-Coordination folder as *1[a,b,c,d]_output* and *1[a,b,c,d]_GFN2_converged.xyz*.
    
 ## 2. Investigation of the relative pyrrole-nitrogen positions
+1) Four diastereomers of 1a (1a_alpha, 1a_beta, 1a_gamma, 1a_delta) are created by changing the moving one nitrogen around the pyrrole-ring starting from 1a. These files can be found in the repository as *1a_[alpha/beta/gamma/delta]_GFN2/1a_[alpha/beta/gamma/delta]_input.xyz*. 
+2) GFN2-xTB calculations are performed 
 
 ## 3. Investigation of relative orientations of the phenyl rings
 
