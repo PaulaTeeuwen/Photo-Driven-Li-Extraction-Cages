@@ -1,5 +1,5 @@
 # Photo-Driven-Li-Extraction-Cages
-This repository contains the scripts and xyz-files relevant for studying the Li-extraction ability of photo-active azobipyridine-based coordination cages..
+This repository contains the scripts and xyz-files relevant for studying the Li-extraction ability of photo-active azobipyridine-based coordination cages.
 
 ## Software used
 - [Scigress](https://www.fqs.pl/en/chemistry/products/scigress) v2.6
@@ -12,9 +12,9 @@ This repository contains the scripts and xyz-files relevant for studying the Li-
 For installing these tools, refer to their respective documentation or package managers suitable for your system.
 
 ## Repository Structure
-- 1-Coordination/: Input-files and output files for section 7.1 of the Supporting Information
-- 2-NPositions/: Input-files and output files for section 7.2 of the Supporting Information
-- 3-PhenylOrientations/: Input-files and output files for section 7.2 of Supporting Information
+- 1-Coordination/: Input-files and output files for section 1.
+- 2-NPositions/: Input-files and output files for section 2.
+- 3-PhenylOrientations/: Input-files and output files for section 3.
 
 ## 1. Investigation of the Li-coordination environments
 1) MM3 modelling was performeed in Scigress on four different potential geometries of the sandwich complex Li<sub>4</sub>L<sub>2</sub>. Each started out from a different coordination geometry.
@@ -46,7 +46,7 @@ For installing these tools, refer to their respective documentation or package m
    Well-converged minima were obtained (*1[a,b,c,d]_GFN2_converged.xyz*) and their energies were recorded for comparison (see *1[a,b,c,d]_output*)
    
 ## 2. Investigation of the relative pyrrole-nitrogen positions
-1) Four diastereomers of 1a (1a_alpha, 1a_beta, 1a_gamma, 1a_delta) were created by changing the moving one nitrogen around the pyrrole-ring starting from 1a. These files can be found in the repository as *1a[_type]_GFN2/1a[_type]_input.xyz*, where *_type* is either *_alpha*, *_beta*, *_gamma* or *_delta*.
+1) Four diastereomers of 1a (1a_alpha, 1a_beta, 1a_gamma, 1a_delta) were created by changing the moving one nitrogen around the pyrrole-ring starting from 1a. The five structures can be found in the repository as *1a[_type]_GFN2/1a[_type]_input.xyz*, where *_type* is either nothing, *_alpha*, *_beta*, *_gamma* or *_delta*.
    
 2) Geometry optimizations at the GFN2-xTB level were performed on the input structures generated in step 2.1 analogous to step 1.2. Well-converged minima were obtained (*1a[_type]_GFN2_converged.xyz*) and their energies were recorded for comparison (see *1a[_type]_output*).
 
