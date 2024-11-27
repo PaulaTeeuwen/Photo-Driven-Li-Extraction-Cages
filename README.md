@@ -19,7 +19,7 @@ For installing these tools, refer to their respective documentation or package m
 ## 1. Investigation of the Li-coordination environments
 1) MM3 modelling was performeed in Scigress on four different potential geometries of the sandwich complex Li<sub>4</sub>L<sub>2</sub>. Each started out from a different coordination geometry.
 
-2) Geometry optimizations at the GFN2-xTB level performed on the MM3-optimized from step 1 using the *OPTIM* interface to the *XTB* program. For each calculation, a charge of 5 was applied. The odata file shown below contains all the input parameters:
+2) Geometry optimizations at the GFN2-xTB level performed on the MM3-optimized from step 1.1 using the *OPTIM* interface to the *XTB* program. For each calculation, a charge of 5 was applied. The odata file shown below contains all the input parameters:
 
    odata:
    ```
@@ -43,16 +43,12 @@ For installing these tools, refer to their respective documentation or package m
    ```
    /path-to-OPTIM/OPTIM > output
    ```
-   followed by running:
-   
-   >>sbatch sbatch.optim
-
-   The results of the optimization can be found in the 1-Coordination folder as *1[a,b,c,d]_output* and *1[a,b,c,d]_GFN2_converged.xyz*.
+   Well-converged minima were obtained (*1[a,b,c,d]_GFN2_converged.xyz*) and their energies were recorded for comparison (see *1[a,b,c,d]_output*)
    
 ## 2. Investigation of the relative pyrrole-nitrogen positions
-1) Four diastereomers of 1a (1a_alpha, 1a_beta, 1a_gamma, 1a_delta) were created by changing the moving one nitrogen around the pyrrole-ring starting from 1a. These files can be found in the repository as *1a_[type]_GFN2/1a_[type]_input.xyz*, with type being alpha, beta gamma or delta.
+1) Four diastereomers of 1a (1a_alpha, 1a_beta, 1a_gamma, 1a_delta) were created by changing the moving one nitrogen around the pyrrole-ring starting from 1a. These files can be found in the repository as *1a[_type]_GFN2/1a[_type]_input.xyz*, where *_type* is either *_alpha*, *_beta*, *_gamma* or *_delta*.
    
-2) Geometry optimizations at the GFN2-xTB level were performed on the input structures generated in step 1. Well-converged minima were obtained (*1a_[type]_GFN2_converged.xyz*) and their energies were recorded for comparison (see *1a_[type]_output*).
+2) Geometry optimizations at the GFN2-xTB level were performed on the input structures generated in step 2.1 analogous to step 1.2. Well-converged minima were obtained (*1a[_type]_GFN2_converged.xyz*) and their energies were recorded for comparison (see *1a[_type]_output*).
 
 3) Geometry optimizations at the r<sup>2</sup>SCAN-3c level were performed on the structures obtained in step 2. First, optimizations at the NormalSCF convergence criteria were performed, followed by optimizations at the TightSCF convergence criteria. Initially, no convergence could be reached via this method for 1a and 1a_gamma. In both cases, well-converged minima were obtained by choosing a different input structure by adjusting the converged structure of a different diastereomer.
 
@@ -71,23 +67,23 @@ For installing these tools, refer to their respective documentation or package m
    %maxcore 20000
    %PAL NPROCS 10 END
 
-   *xyzfile 5 1  1a_[type]_DFT_NormalSCF.xyz
+   *xyzfile 5 1  1a[_type]_DFT_NormalSCF.xyz
    ```
-   Well-converged minima were obtained (*1a_[type]_DFT_TightSCF.xyz*) and their energies were recorded for comparison (see *output*).
+   Well-converged minima were obtained for each type (*1a[_type]_DFT_TightSCF.xyz*) and their energies were recorded for comparison (see *output*).
 
 ## 3. Investigation of relative orientations of the phenyl rings
 1) New geometries were created for diastereomer 1a_alpha by altering the positioning of phenyl rings on the arms of the sandwich structures using Avogadro. After a series of geometry optimizations (both GFN2-xTB and r<sup>2</sup>SCAN-3c), lower energy gemeotries were found where the phenyl rings where rotated into a parallel configuration. This resulted in a structure where all five arms contained the new arrangement of phenyls (*1a_alpha_app_input.xyz*).
 
 2) New geometries with this new phenyl arrangement ("app" for "all-phenyls-parallel") were created for the other four diastereomrs by altering rotating the Nitrogen atom around one pyrrole ring using Avogadro (*1a_app_input.xyz*, *1a_beta_app_input.xyz*, *1a_gamma_app_input.xyz* and *1a_delta_app_input.xyz*).
 
-3) Geometry optimizations at the r<sup>2</sup>SCAN-3c (TightSCF optimization level) were performed on the structures created in step 1 and 2 using ORCA.
+3) Geometry optimizations at the r<sup>2</sup>SCAN-3c (TightSCF optimization level) were performed on the structures created in step 3.1 and 3.2 using ORCA, analogous to the calculations perfomed in step 2.3. The *ORCA.in* files contained the following lines:
 
    ```
    ! r2SCAN-3c OPT TIGHTSCF def2/J
    %maxcore 20000
    %PAL NPROCS 20 END
 
-   *xyzfile 5 1  1a_[type]_app_input.xyz 
+   *xyzfile 5 1  1a[_type]_app_input.xyz 
    ```
 
-   Well-converged minima were obtained *1a_[type]_app_DFT_TightSCF.xyz* and their total energies were recorded for comparison (see *output*).
+   Well-converged minima were obtained *1a[_type]_app_DFT_TightSCF.xyz* and their total energies were recorded for comparison (see *output*).
