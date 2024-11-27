@@ -2,4 +2,4 @@
 %maxcore 20000
 %PAL NPROCS 20 END
 
-*xyzfile 5 1  N3_app_input.xyz 
+*xyzfile 5 1  1a_beta_app_input.xyz 
