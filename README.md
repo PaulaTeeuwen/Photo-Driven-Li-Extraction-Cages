@@ -21,7 +21,6 @@ For installing these tools, refer to their respective documentation or package m
 
 2) Geometry optimizations at the GFN2-xTB level performed on the MM3-optimized cages from step 1.1 using the OPTIM interface to the XTB program. For each calculation, a charge of 5 was applied. The odata file shown below contains all the input parameters used during the calculation:
 
-   odata:
    ```
     DEBUG
 
@@ -36,7 +35,7 @@ For installing these tools, refer to their respective documentation or package m
     DUMPDATA
     ENDNUMHESS
 
-    XTB azo-coordinate.xyz ' --acc 0.01 --chrg 5 --gfn2 '
+    XTB 1[a,b,c,d]_MM3.xyz ' --acc 0.01 --chrg 5 --gfn2 '
    ```
    
    Well-converged minima were obtained (*1[a,b,c,d]_GFN2_converged.xyz*) and their energies were recorded for comparison (see *1[a,b,c,d]_output*)
