@@ -42,13 +42,13 @@ For installing these tools, refer to their respective documentation or package m
    Well-converged minima were obtained (*1[a,b,c,d]_GFN2_converged.xyz*) and their energies were recorded for comparison (see *1[a,b,c,d]_output*)
    
 ## 2. Investigation of the relative pyrrole-nitrogen positions
-1) Four diastereomers of 1a (1a_alpha, 1a_beta, 1a_gamma, 1a_delta) were created by changing the moving one nitrogen around the pyrrole-ring starting from 1a. The five structures can be found in the repository as *1a[_type]_GFN2/1a[_type]_input.xyz*, where *_type* is either nothing, *_alpha*, *_beta*, *_gamma* or *_delta*.
+1) Four diastereomers of 1a (1a_alpha, 1a_beta, 1a_gamma, 1a_delta) were created by moving one nitrogen around the pyrrole-ring starting from 1a. The five structures can be found in the repository as *1a[_type]_GFN2/1a[_type]_input.xyz*, where *_type* is either nothing, *_alpha*, *_beta*, *_gamma* or *_delta*.
    
 2) Geometry optimizations at the GFN2-xTB level were performed on the input structures generated in step 2.1 analogous to step 1.2. Well-converged minima were obtained (*1a[_type]_GFN2_converged.xyz*) and their energies were recorded for comparison (see *1a[_type]_output*).
 
-3) Geometry optimizations at the r<sup>2</sup>SCAN-3c level were performed on the structures obtained in step 2. First, optimizations at the NormalSCF convergence criteria were performed, followed by optimizations at the TightSCF convergence criteria. Initially, no convergence could be reached via this method for 1a and 1a_gamma. In both cases, well-converged minima were obtained by choosing a different input structure by adjusting the converged structure of a different diastereomer.
+3) Geometry optimizations at the r<sup>2</sup>SCAN-3c level were performed on the structures obtained in step 2.2. First, optimizations at the NormalSCF convergence criteria were performed, followed by optimizations at the TightSCF convergence criteria. Initially, no convergence could be reached via this method for 1a and 1a_gamma. In both cases, well-converged minima were obtained by restarting from the converged structure of a different diastereomer (with adjusted nitrogens).
 
-   The ORCA.in file for the geometry optimizations at the NormalSCF level contained:
+   The *ORCA_NormalSCF.in* file contains all the keywords applied during the geometry optimizations performed at the NormalSCF level:
    ```
    ! r2SCAN-3c OPT NORMALSCF def2/J
    %maxcore 8000
@@ -57,7 +57,7 @@ For installing these tools, refer to their respective documentation or package m
    *xyzfile 5 1  GFN2.xyz
    ```
 
-   The ORCA.in file for the geometry optimizations at the TightSCF level contained:
+   The *ORCA_TightSCF.in* file contains all the keywords applied during the geometry optimizations performed at the TightSCF level:
    ```
    ! r2SCAN-3c OPT TIGHTSCF def2/J
    %maxcore 20000
@@ -65,6 +65,7 @@ For installing these tools, refer to their respective documentation or package m
 
    *xyzfile 5 1  1a[_type]_DFT_NormalSCF.xyz
    ```
+   
    Well-converged minima were obtained for each type (*1a[_type]_DFT_TightSCF.xyz*) and their energies were recorded for comparison (see *output*).
 
 ## 3. Investigation of relative orientations of the phenyl rings
