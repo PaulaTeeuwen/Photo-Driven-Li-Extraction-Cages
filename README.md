@@ -17,9 +17,9 @@ For installing these tools, refer to their respective documentation or package m
 - 3-PhenylOrientations/: Input-files and output files for section 3.
 
 ## 1. Investigation of the Li-coordination environments
-1) MM3 modelling was performeed in Scigress on four different potential geometries of the sandwich complex Li<sub>4</sub>L<sub>2</sub>. Each started out from a different coordination geometry.
+1) MM3 modelling was performed in Scigress on four different potential geometries of the sandwich complex Li<sub>4</sub>L<sub>2</sub>. The calculations started from guess-structures with different coordination environments around the Li-atoms. These different environments were created by explicitly drawing (or not drawing) coordination bonds between the Li and different combinations of nitrogen atoms. The MM3 optimized structures can be found in the repository as *1[a,b,c,d]_MM3.xyz* in the *1-Coordination* folder.
 
-2) Geometry optimizations at the GFN2-xTB level performed on the MM3-optimized from step 1.1 using the *OPTIM* interface to the *XTB* program. For each calculation, a charge of 5 was applied. The odata file shown below contains all the input parameters:
+2) Geometry optimizations at the GFN2-xTB level performed on the MM3-optimized cages from step 1.1 using the OPTIM interface to the XTB program. For each calculation, a charge of 5 was applied. The odata file shown below contains all the input parameters used during the calculation:
 
    odata:
    ```
@@ -38,11 +38,7 @@ For installing these tools, refer to their respective documentation or package m
 
     XTB azo-coordinate.xyz ' --acc 0.01 --chrg 5 --gfn2 '
    ```
-
-   The program is run by adding the following line to the *sbatch.optim* file,
-   ```
-   /path-to-OPTIM/OPTIM > output
-   ```
+   
    Well-converged minima were obtained (*1[a,b,c,d]_GFN2_converged.xyz*) and their energies were recorded for comparison (see *1[a,b,c,d]_output*)
    
 ## 2. Investigation of the relative pyrrole-nitrogen positions
