@@ -13,7 +13,7 @@ For installing these tools, refer to their respective documentation or package m
 
 ## Repository Structure
 - 1-Coordination/: Input-files and output files for section 7.1 of the Supporting Information
-- 2-Npositions/: Input-files and output files for section 7.2 of the Supporting Information
+- 2-NPositions/: Input-files and output files for section 7.2 of the Supporting Information
 - 3-PhenylOrientations/: Input-files and output files for section 7.2 of Supporting Information
 
 ## 1. Investigation of the Li-coordination environments
