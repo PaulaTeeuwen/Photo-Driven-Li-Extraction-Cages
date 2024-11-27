@@ -41,7 +41,7 @@ For installing these tools, refer to their respective documentation or package m
    
    Well-converged minima were obtained (*1[a,b,c,d]_GFN2_converged.xyz*) and their energies were recorded for comparison (see *1[a,b,c,d]_output*)
 
-3) Basin-hopping global optimizations were performed on each of the four structures to explore configuraiont space. Thes calculations were performed using the GMIN program via the xtb interface. Both the GFN-FF and GFN2-xTB levels of theory were used. GMIN calculations at the GFN-FF level were followed by relaxations at the GFN2-xTB level of all found minima via the OPTIM interface to xtb. These searches did not locate any physically relevant lower energy minima. Input and output files for these calculations are not added to this repository.
+3) Basin-hopping global optimizations were performed on each of the four structures to explore configuraiont space. Thes calculations were performed using the GMIN program via the xtb interface. Both the GFN-FF and GFN2-xTB levels of theory were used. GMIN calculations at the GFN-FF level were followed by relaxations at the GFN2-xTB level of all found minima via the OPTIM interface to xtb. Input and output files for these calculations are not added to this repository as they did not lead to any physically relevant lower energy minima.
    
 ## 2. Investigation of the relative pyrrole-nitrogen positions
 1) Four diastereomers of 1a (1a_alpha, 1a_beta, 1a_gamma, 1a_delta) were created by moving one nitrogen around the pyrrole-ring starting from 1a. The five structures can be found in the repository as *1a[_type]_GFN2/1a[_type]_input.xyz*, where *_type* is either nothing, *_alpha*, *_beta*, *_gamma* or *_delta*.
