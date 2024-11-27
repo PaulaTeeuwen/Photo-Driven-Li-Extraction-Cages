@@ -52,35 +52,28 @@ For installing these tools, refer to their respective documentation or package m
 ## 2. Investigation of the relative pyrrole-nitrogen positions
 1) Four diastereomers of 1a (1a_alpha, 1a_beta, 1a_gamma, 1a_delta) were created by changing the moving one nitrogen around the pyrrole-ring starting from 1a. These files can be found in the repository as *1a_[type]_GFN2/1a_[type]_input.xyz*, with type being alpha, beta gamma or delta.
    
-2) Geometry optimizations at the GFN2-xTB level were performed on the input structures generated in step 1. Well-converged minima ...
+2) Geometry optimizations at the GFN2-xTB level were performed on the input structures generated in step 1. Well-converged minima were obtained (*1a_[type]_GFN2_converged.xyz*) and their energies were recorded for comparison (see *1a_[type]_output*).
 
 3) Geometry optimizations at the r<sup>2</sup>SCAN-3c level were performed on the structures obtained in step 2. First, optimizations at the NormalSCF convergence criteria were performed, followed by optimizations at the TightSCF convergence criteria. Initially, no convergence could be reached via this method for 1a and 1a_gamma. In both cases, well-converged minima were obtained by choosing a different input structure by adjusting the converged structure of a different diastereomer.
 
-The ORCA.in file for the geometry optimizations at the NormalSCF level contained:
-```
-! r2SCAN-3c OPT NORMALSCF def2/J
-%maxcore 8000
-%PAL NPROCS 20 END
+   The ORCA.in file for the geometry optimizations at the NormalSCF level contained:
+   ```
+   ! r2SCAN-3c OPT NORMALSCF def2/J
+   %maxcore 8000
+   %PAL NPROCS 20 END
 
-*xyzfile 5 1  GFN2.xyz
-```
+   *xyzfile 5 1  GFN2.xyz
+   ```
 
-The ORCA.in file for the geometry optimizations at the TightSCF level contained:
-```
-! r2SCAN-3c OPT TIGHTSCF def2/J
-%maxcore 20000
-%PAL NPROCS 10 END
+   The ORCA.in file for the geometry optimizations at the TightSCF level contained:
+   ```
+   ! r2SCAN-3c OPT TIGHTSCF def2/J
+   %maxcore 20000
+   %PAL NPROCS 10 END
 
-*xyzfile 5 1  ORCA.xyz
-```
-
-Calculations were submitted by running:
->> sbatch sbatch.orca
-
-where, sbatch.orca contained the line:
-```
-/path-to-orca/orca ORCA.in > output &
-```
+   *xyzfile 5 1  1a_[type]_DFT_NormalSCF.xyz
+   ```
+   Well-converged minima were obtained (*1a_[type]_DFT_TightSCF.xyz*) and their energies were recorded for comparison (see *output*).
 
 ## 3. Investigation of relative orientations of the phenyl rings
 1) New geometries were created for diastereomer 1a_alpha by altering the positioning of phenyl rings on the arms of the sandwich structures using Avogadro. After a series of geometry optimizations (both GFN2-xTB and r<sup>2</sup>SCAN-3c), lower energy gemeotries were found where the phenyl rings where rotated into a parallel configuration. This resulted in a structure where all five arms contained the new arrangement of phenyls (*1a_alpha_app_input.xyz*).
@@ -94,7 +87,7 @@ where, sbatch.orca contained the line:
    %maxcore 20000
    %PAL NPROCS 20 END
 
-   *xyzfile 5 1  [structure]_app_input.xyz 
+   *xyzfile 5 1  1a_[type]_app_input.xyz 
    ```
 
-   Well-converged minima were obtained and their total energies were recorded for comparison.
+   Well-converged minima were obtained *1a_[type]_app_DFT_TightSCF.xyz* and their total energies were recorded for comparison (see *output*).
