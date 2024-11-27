@@ -35,7 +35,7 @@ For installing these tools, refer to their respective documentation or package m
     DUMPDATA
     ENDNUMHESS
 
-    XTB 1[a,b,c,d]_MM3.xyz ' --acc 0.01 --chrg 5 --gfn2 '
+    XTB 1a_MM3.xyz ' --acc 0.01 --chrg 5 --gfn2 '
    ```
    
    Well-converged minima were obtained (*1[a,b,c,d]_GFN2_converged.xyz*) and their energies were recorded for comparison (see *1[a,b,c,d]_output*)
@@ -64,7 +64,7 @@ For installing these tools, refer to their respective documentation or package m
    %maxcore 20000
    %PAL NPROCS 10 END
 
-   *xyzfile 5 1  1a[_type]_DFT_NormalSCF.xyz
+   *xyzfile 5 1  1a_alpha_DFT_NormalSCF.xyz
    ```
    
    Well-converged minima were obtained for each type (*1a[_type]_DFT_TightSCF.xyz*) and their energies were recorded for comparison (see *output*).
@@ -81,7 +81,7 @@ For installing these tools, refer to their respective documentation or package m
    %maxcore 20000
    %PAL NPROCS 20 END
 
-   *xyzfile 5 1  1a[_type]_app_input.xyz 
+   *xyzfile 5 1  1a_alpha_app_input.xyz 
    ```
 
    Well-converged minima were obtained *1a[_type]_app_DFT_TightSCF.xyz* and their total energies were recorded for comparison (see *output*).
