@@ -2,4 +2,4 @@
 %maxcore 20000
 %PAL NPROCS 20 END
 
-*xyzfile 5 1  ORCA.xyz 
+*xyzfile 5 1  ORCA_step1.xyz 
