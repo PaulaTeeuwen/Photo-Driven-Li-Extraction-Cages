@@ -85,6 +85,16 @@ where, sbatch.orca contained the line:
 ## 3. Investigation of relative orientations of the phenyl rings
 1) New geometries were created for diastereomer 1a_alpha by altering the positioning of phenyl rings on the arms of the sandwich structures using Avogadro. After a series of geometry optimizations (both GFN2-xTB and r<sup>2</sup>SCAN-3c), lower energy gemeotries were found where the phenyl rings where rotated into a parallel configuration. This resulted in a structure where all five arms contained the new arrangement of phenyls (*1a_alpha_app_input.xyz*).
 
-2) New geometries with this new phenyl arrangement ("app" for "all-phenyls-parallel") were created for the other four diastereomrs (*1a_app_input.xyz*, *1a_beta_app_input.xyz*, *1a_gamma_app_input.xyz* and *1a_delta_app_input.xyz*).
+2) New geometries with this new phenyl arrangement ("app" for "all-phenyls-parallel") were created for the other four diastereomrs by altering rotating the Nitrogen atom around one pyrrole ring using Avogadro (*1a_app_input.xyz*, *1a_beta_app_input.xyz*, *1a_gamma_app_input.xyz* and *1a_delta_app_input.xyz*).
 
-3) Geometry optimizations at the r<sup>2</sup>SCAN-3c (TightSCF optimization level) were performed on the structures created in step 1 and 2 using ORCA. Well-converged minima were obtained and their total energies were recorded for comparison.
+3) Geometry optimizations at the r<sup>2</sup>SCAN-3c (TightSCF optimization level) were performed on the structures created in step 1 and 2 using ORCA.
+
+   ```
+   ! r2SCAN-3c OPT TIGHTSCF def2/J
+   %maxcore 20000
+   %PAL NPROCS 20 END
+
+   *xyzfile 5 1  [structure]_app_input.xyz 
+   ```
+
+   Well-converged minima were obtained and their total energies were recorded for comparison.
