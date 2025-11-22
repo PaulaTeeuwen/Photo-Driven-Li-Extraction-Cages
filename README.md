@@ -1,6 +1,9 @@
 # Photo-Driven-Li-Extraction-Cages
 This repository contains the scripts and xyz-files relevant for studying the Li-extraction ability of photo-active azobipyridine-based coordination cages.
 
+Find out more:
+[Publication](https://pubs.acs.org/doi/10.1021/jacs.5c05885)
+
 ## Software used
 - [Scigress](https://www.fqs.pl/en/chemistry/products/scigress) v2.6
 - [ORCA](https://www.faccts.de/orca/) v5.0.4
